@@ -14,7 +14,7 @@ def start(message):
 def mess(message):
     final_message = ""
     get_message_bot = message.text.strip().lower()
-    if get_message_bot == "сша":
+    if get_message_bot == "сша" or get_message_bot == "соединеные штаты америки":
         location = covid19.getLocationByCountryCode("US")
     elif get_message_bot == "украина":
         location = covid19.getLocationByCountryCode("UA")
@@ -34,7 +34,7 @@ def mess(message):
         location = covid19.getLocationByCountryCode("JP")
     else:
         location = covid19.getLatest()
-        final_message = f"<u>Данные по всему миру:</u>\n<b>Заболевших: </b>{location['confirmed']:,}\n<b>Сметрей: </b>{location['deaths']:,}"gir
+        final_message = f"<u>Данные по всему миру:</u>\n<b>Заболевших: </b>{location['confirmed']:,}\n<b>Смертей: </b>{location['deaths']:,}"
 
     if final_message == "":
         date = location[0]['last_updated'].split('T')
